@@ -2,7 +2,7 @@ import { CATEGORIES } from "../data/products";
 
 export default function Filters({ cat, setCat, sort, setSort, priceMax, setPriceMax }) {
   return (
-    <div className="filters-bar" id="products">
+    <div className="filters-bar">
       <div className="filter-cats">
         {CATEGORIES.map((c) => (
           <button
@@ -21,10 +21,11 @@ export default function Filters({ cat, setCat, sort, setSort, priceMax, setPrice
           value={priceMax}
           onChange={(e) => setPriceMax(Number(e.target.value))}
         >
-          <option value={1000}>Todos os preços</option>
-          <option value={150}>Até R$ 150</option>
-          <option value={300}>Até R$ 300</option>
-          <option value={500}>Até R$ 500</option>
+          <option value={1500}>Todos os preços</option>
+          <option value={200}>Até R$ 200</option>
+          <option value={400}>Até R$ 400</option>
+          <option value={700}>Até R$ 700</option>
+          <option value={1100}>Até R$ 1.100</option>
         </select>
 
         <select

@@ -22,7 +22,7 @@ export function CartProvider({ children }) {
 
   const notify = (msg) => {
     setNotification(msg);
-    setTimeout(() => setNotification(null), 2200);
+    setTimeout(() => setNotification(null), 2400);
   };
 
   const add = (product, size) => {

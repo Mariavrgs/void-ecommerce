@@ -80,3 +80,49 @@
   .product-page { grid-template-columns: 1fr; gap: 40px; padding: 100px 24px 60px; }
   .product-gallery { position: static; }
 }
+
+/* ── NEW PRODUCT PAGE ADDITIONS ──────────────────────────────── */
+.product-top-row {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap;
+}
+.product-installments {
+  font-family: var(--font-mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em;
+}
+.size-selected {
+  color: var(--accent); margin-left: 4px; font-size: 10px;
+}
+
+/* Wishlist button on product page */
+.wish-btn {
+  display: flex; align-items: center; gap: 8px;
+  background: none; border: 1px solid var(--border);
+  color: var(--muted); padding: 8px 16px; cursor: pointer;
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em;
+  text-transform: uppercase; transition: all 0.2s; border-radius: var(--radius);
+  margin-left: auto;
+}
+.wish-btn:hover { border-color: #ff6b8a; color: #ff6b8a; }
+.wish-btn.wished { border-color: #ff6b8a; color: #ff6b8a; background: rgba(255,107,138,0.06); }
+.wish-btn.wished svg { fill: #ff6b8a; }
+
+/* Accordion details */
+.product-details {
+  margin: 32px 0; border-top: 1px solid var(--border);
+}
+.detail-item {
+  border-bottom: 1px solid var(--border);
+}
+.detail-item summary {
+  padding: 16px 0; font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted);
+  cursor: pointer; list-style: none; display: flex; justify-content: space-between;
+  align-items: center; transition: color 0.2s;
+}
+.detail-item summary::after { content: '+'; font-size: 16px; color: var(--muted); }
+.detail-item[open] summary::after { content: '−'; }
+.detail-item summary:hover { color: var(--text); }
+.detail-item[open] summary { color: var(--text); }
+.detail-content {
+  padding: 0 0 20px; display: flex; flex-direction: column; gap: 8px;
+}
+.detail-content p { font-size: 13px; color: var(--muted); line-height: 1.6; }
