@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap');
+
+/* ── RESET & VARIABLES ──────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #080808;
+  --surface: #111111;
+  --surface2: #1a1a1a;
+  --border: #222222;
+  --text: #f0f0f0;
+  --muted: #888888;
+  --accent: #e8ff4a;
+  --danger: #ff4a4a;
+  --radius: 2px;
+  --font-display: 'Bebas Neue', 'Barlow Condensed', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── LAYOUT ─────────────────────────────────────────────────── */
+.void-app { min-height: 100vh; }
+
+/* ── PAGE TRANSITION ────────────────────────────────────────── */
+.page-enter { animation: pageEnter 0.35s ease; }
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── SHARED BUTTONS ─────────────────────────────────────────── */
+.btn-primary {
+  background: var(--text); color: var(--bg); padding: 14px 32px;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em;
+  text-transform: uppercase; border: none; cursor: pointer;
+  transition: all 0.2s; border-radius: var(--radius);
+}
+.btn-primary:hover { background: var(--accent); }
+
+.btn-ghost {
+  background: none; border: 1px solid var(--border); color: var(--muted);
+  padding: 14px 32px; font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer;
+  transition: all 0.2s; border-radius: var(--radius);
+}
+.btn-ghost:hover { border-color: var(--text); color: var(--text); }
+
+/* ── NOTIFICATION ───────────────────────────────────────────── */
+.notification {
+  position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%);
+  background: var(--surface); border: 1px solid var(--border);
+  padding: 12px 24px; font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 0.15em; text-transform: uppercase; z-index: 999;
+  animation: notifIn 0.3s ease; white-space: nowrap;
+  display: flex; align-items: center; gap: 10px;
+  border-radius: 99px; box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+.notification::before { content: '✓'; color: #22c55e; font-size: 14px; }
+@keyframes notifIn {
+  from { transform: translateX(-50%) translateY(20px); opacity: 0; }
+  to   { transform: translateX(-50%) translateY(0); opacity: 1; }
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .products-grid { grid-template-columns: 1fr 1fr !important; }
+}
